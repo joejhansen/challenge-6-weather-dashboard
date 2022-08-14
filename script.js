@@ -8,6 +8,7 @@ var searches = []
 
 // the bulk of what's fetching things
 function apiFetch(event) {
+    // get the text input, trim it, and put it in the link
     var thisCity
     event.preventDefault();
     var thisForm = $(event.target.children[1])
@@ -21,6 +22,7 @@ function apiFetch(event) {
     localStorage.setItem("searches", searchesString)
     var fetchThisWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + thisCity + "&appid=bb4a2cc31f0088381e043273ec374977&units=imperial"
     var fetchThisForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + thisCity + "&appid=bb4a2cc31f0088381e043273ec374977&units=imperial"
+    // fetch current weather
     fetch(fetchThisWeather)
         .then (function (response) {
             return response.json();
@@ -44,6 +46,7 @@ function apiFetch(event) {
             historyEntry.textContent = thisCity.toUpperCase();
             document.getElementById("history").appendChild(historyEntry)
         });
+    // fetch the forecast
     fetch(fetchThisForecast)
         .then(function (response) {
             return response.json();
@@ -53,6 +56,7 @@ function apiFetch(event) {
             while (document.getElementById("forecastDiv").firstChild) {
                 document.getElementById("forecastDiv").removeChild(document.getElementById("forecastDiv").firstChild)
             }
+            // for loop for each 24hour period
             for (i = 6; i < data.list.length; i = i + 8) {
                 var thisDay = data.list[i];
                 var temp = thisDay.main.temp
@@ -94,7 +98,7 @@ searchForm.on('submit', apiFetch)
 
 init();
 
-// bubbling for the click event on the history div I repeat myself hear but I couldn't get the data to work in a seperate function so had to keep it as two anonymous ones
+// bubbling for the click event on the history div. I repeat myself hear but I couldn't get the data to work in a seperate function so had to keep it as two anonymous ones
 document.getElementById("history").addEventListener('click', function (event) {
     var thisCity = event.target.textContent
     var fetchThisWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + thisCity + "&appid=bb4a2cc31f0088381e043273ec374977&units=imperial"
