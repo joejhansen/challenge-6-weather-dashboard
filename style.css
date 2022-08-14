@@ -1,0 +1,53 @@
+/* *{
+    outline: dashed red;
+} */
+.test{
+    /* height: 300px; */
+    width: 300px;
+}
+header{
+    margin: 3%;
+    border-radius: 10px;
+    /* got this from a youtube video for this glassy effect */
+    background: linear-gradient(to right bottom,rgba(252, 252, 252, 0.7),rgba(0, 17, 255, 0.3));
+}
+main{
+    margin: 3%;
+}
+#navFormDiv{
+    border-bottom: solid black 2px;
+}
+#weatherInfo{
+    border: solid black 2px;
+    background-color: white;
+}
+.btn{
+    width: 100%;
+    margin-top: 2px;
+}
+body{
+    /* looks kinda like slate */
+    background: linear-gradient(to right bottom, white, gray);
+    height: 97.5vh;
+}
+/* #forecastDiv{
+    display: flex;
+    flex-direction: row;
+} */
+.card{
+    border-radius: 10px;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+}
+img{
+    height: 50px;
+    width: 50px;
+}
+.historyDivs{
+    background-color: white;
+    border: solid black 1px;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+#history{
+    margin-bottom: 10px;
+}
